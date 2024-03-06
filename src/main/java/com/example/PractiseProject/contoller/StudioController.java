@@ -17,19 +17,17 @@ import com.google.gson.Gson;
 @RestController
 @RequestMapping("/Api")
 public class StudioController {
-	
+
 	@Autowired
 	Gson gson;
-	
+
 	@Autowired
 	StudioService studioService;
-	
-	
-	
-	static Logger logger = LoggerFactory.getLogger(StudioController.class); 
-	
+
+	static Logger logger = LoggerFactory.getLogger(StudioController.class);
+
 	@PostMapping("/getStudioDetails") // @RequestMapping(value = "/insertemp", method = RequestMethod.POST)
-	public ResponseEntity<String> getStudioDetails(@RequestBody  StudioModel studioModel) {
+	public ResponseEntity<String> getStudioDetails(@RequestBody StudioModel studioModel) {
 
 		logger.info(" getStudioDetails Request - " + gson.toJson(studioModel) + "\n");
 //		logger.warn("this is a warn message");

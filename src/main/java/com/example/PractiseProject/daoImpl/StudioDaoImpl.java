@@ -27,10 +27,8 @@ public class StudioDaoImpl implements StudioDao {
 	@Override
 	public StudioModel getStudioDetails(StudioModel studioModel) {
 
-		String select = " SELECT * ,"
-				      + " company_name as studioName,"
-				      + " company_id as studioId "
-				      + " FROM company "
+		String select = " SELECT * "
+		              + " FROM company "
 				      + " WHERE company_id = ? ";
 
 		logger.info(" getStudioDetailsImpl Request - " + gson.toJson(studioModel) + "\n" + select);
@@ -39,8 +37,8 @@ public class StudioDaoImpl implements StudioDao {
 
 			RowMapper<StudioModel> rowMapper = new BeanPropertyRowMapper<StudioModel>(StudioModel.class);
 
-			StudioModel sqlObj = jdbcTemplate.queryForObject(select, rowMapper,studioModel.getStudioId());
-			
+			StudioModel sqlObj = jdbcTemplate.queryForObject(select, rowMapper, studioModel.getCompany_id());
+
 			if (sqlObj != null) {
 
 				logger.info("getStudioDetailsImpl response - " + gson.toJson(sqlObj) + "\n");
