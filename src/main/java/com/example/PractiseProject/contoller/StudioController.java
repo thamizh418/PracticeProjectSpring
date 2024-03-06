@@ -26,7 +26,7 @@ public class StudioController {
 
 	static Logger logger = LoggerFactory.getLogger(StudioController.class);
 
-	@PostMapping("/getStudioDetails") // @RequestMapping(value = "/insertemp", method = RequestMethod.POST)
+	@PostMapping("/getStudioDetails") // @RequestMapping(value = "/getStudioDetails", method = RequestMethod.POST)
 	public ResponseEntity<String> getStudioDetails(@RequestBody StudioModel studioModel) {
 
 		logger.info(" getStudioDetails Request - " + gson.toJson(studioModel) + "\n");
